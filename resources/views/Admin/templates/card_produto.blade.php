@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="">Nome</label>
-                                <input type="text" name="nome" value="{{isset($produto) ? (old('nome') ?? $produto->nome) : ''}}" class="form-control">
+                                <input type="text" name="nome" required value="{{isset($produto) ? (old('nome') ?? $produto->nome) : ''}}" class="form-control">
                             </div>
 
                             @if(!isset($produto) or $produto->variacao == 0)
@@ -36,7 +36,7 @@
 
                                 <div class="col-md-6">
                                     <label for="" class="d-block">Foto</label>
-                                    <input type="file" name="foto">
+                                    <input type="file" {{!isset($produto) ? 'required' : ''}} name="foto">
                                     <small class="form-text text-muted">Selecione uma imagem em formatado quadrado, por exemplo: 400x400</small>
                                 </div>
 
