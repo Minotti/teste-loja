@@ -17,13 +17,13 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nome</label>
-                        <input autocomplete="off" type="text" name="nome" class="form-control" id="">
+                        <input autocomplete="off" type="text" required name="nome" class="form-control" id="">
                         <small class="form-text text-muted">Exemplo: Tamanho</small>
                     </div>
 
                     <div class="form-group">
                         <label>Valores</label>
-                        <select class="form-control select2bs4" multiple name="atributo_valores[]"></select>
+                        <select class="form-control select2bs4" required multiple name="atributo_valores[]"></select>
                         <small class="form-text text-muted">Adicione os valores, exemplo: P, M, G</small>
                     </div>
                 </div>
