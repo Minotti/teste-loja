@@ -11,15 +11,6 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -29,11 +20,15 @@ class HomeController extends Controller
         $ultimas_mov = Movimentacoes::take(5)->orderBy('created_at', 'desc')->get();
         $produtos = Produtos::with('estoque')->get();
         $usuarios = \Auth::user()->empresa->users->count();
+        $estoque = 0;
+        if($produtos->count() > 0) {
+            $estoque = $produtos->map(function($est) {
+                return $est->estoque->sum('qtd');
+            });
+        }
 
-        $estoque = $produtos->map(function($est) {
-            return $est->estoque->sum('qtd');
-        });
+        $prod_count = $produtos->count();
 
-        return view('home', compact('ultimas_mov', 'produtos', 'estoque', 'usuarios'));
+        return view('home', compact('ultimas_mov', 'prod_count', 'estoque', 'usuarios'));
     }
 }

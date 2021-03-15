@@ -7,7 +7,7 @@
                 <div class="col-md-6">
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>{{$produtos->count()}}</h3>
+                            <h3>{{$prod_count}}</h3>
 
                             <p>Produtos</p>
                         </div>
@@ -24,7 +24,7 @@
                 <div class="col-md-6">
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>{{$estoque[0]}}</h3>
+                            <h3>{{$estoque}}</h3>
 
                             <p>Estoque Total</p>
                         </div>
