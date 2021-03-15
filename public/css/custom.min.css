@@ -1,0 +1,6 @@
+.invisible_absolute {
+    visibility: hidden!important;
+    position: absolute;
+    top: -1000px;
+}
+
