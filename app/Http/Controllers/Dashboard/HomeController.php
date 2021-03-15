@@ -21,10 +21,11 @@ class HomeController extends Controller
         $produtos = Produtos::with('estoque')->get();
         $usuarios = \Auth::user()->empresa->users->count();
         $estoque = 0;
+
         if($produtos->count() > 0) {
             $estoque = $produtos->map(function($est) {
                 return $est->estoque->sum('qtd');
-            });
+            })->sum();
         }
 
         $prod_count = $produtos->count();
